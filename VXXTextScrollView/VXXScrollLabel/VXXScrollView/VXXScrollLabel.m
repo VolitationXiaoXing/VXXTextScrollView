@@ -13,10 +13,20 @@
 //当文字不够长的时候滚动的Label
 @property (strong,nonatomic) UILabel* scrollLabel;
 
+@property (assign,nonatomic) CGRect tmpFrame;
+
 @end
 
 
 @implementation VXXScrollLabel
+
+-(UILabel *)scrollLabel{
+    if (_scrollLabel == nil) {
+        _scrollLabel = self.copy;
+    }
+    
+    return _scrollLabel;
+}
 
 - (instancetype)initWithFrame:(CGRect)frame
 {
@@ -30,6 +40,21 @@
 
 -(void)layoutSubviews{
     [super layoutSubviews];
+    
+    self.tmpFrame = self.frame;
+    
+    [self sizeToFit];
+    
+    //需要滚动
+    if(self.bounds.size.width > self.tmpFrame.size.width){
+        
+        [self addSubview:self.scrollLabel];
+        
+    }
+    
+    
+    
+    self.frame = self.tmpFrame;
 }
 
 @end
