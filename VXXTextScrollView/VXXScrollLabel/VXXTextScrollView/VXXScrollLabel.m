@@ -36,6 +36,7 @@
         _scrollLabel.shadowColor = self.shadowColor;
         _scrollLabel.font = self.font;
         _scrollLabel.attributedText = self.attributedText;
+        _scrollLabel.textAlignment = self.textAlignment;
         self.textColor = [UIColor clearColor];
     }
     
@@ -81,6 +82,11 @@
         
         [self.displayLink addToRunLoop:[NSRunLoop currentRunLoop]forMode:NSDefaultRunLoopMode];
         
+        CGRect frame = self.scrollLabel.frame;
+        
+        frame.origin.y = (self.tmpFrame.size.height - frame.size.height) * 0.5;
+        
+        self.scrollLabel.frame = frame;
     }
     
     self.frame = self.tmpFrame;
