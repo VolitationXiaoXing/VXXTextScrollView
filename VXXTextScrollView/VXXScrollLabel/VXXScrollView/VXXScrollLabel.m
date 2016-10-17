@@ -42,6 +42,13 @@
     return _scrollLabel;
 }
 
+- (void)awakeFromNib{
+    [super awakeFromNib];
+    self.speedPoint = 0.2;
+    self.margin = 10;
+    self.scrollDirection = VXXScrollLabelLeftDirectionComeAndBack;
+}
+
 - (instancetype)initWithFrame:(CGRect)frame
 {
     self = [super initWithFrame:frame];
@@ -79,10 +86,19 @@
     self.frame = self.tmpFrame;
 }
 
+
+-(void)setText:(NSString *)text{
+    
+    [self.displayLink invalidate];
+    self.displayLink = nil;
+    
+    [super setText:text];
+
+    [self setNeedsDisplay];
+    [self setNeedsLayout];
+}
+
 -(void)displayLink:(CADisplayLink*)displayLink{
-    
-    
-    
     
     if (self.scrollDirection == VXXScrollLabelLeftDirectionComeAndBack) {
         if (self.bounds.size.width - self.scrollLabel.bounds.size.width - self.margin > self.scrollLabel.frame.origin.x) {
@@ -116,7 +132,6 @@
 
 -(void)setSpeed:(float)speed{
     _speed = speed;
-    
     self.speedPoint = 0.2 * speed;
 }
 
