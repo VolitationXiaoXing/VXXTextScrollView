@@ -18,6 +18,9 @@ typedef enum : NSUInteger {
 
 @property (assign,nonatomic) float speed;
 
+//滚动方向，默认往返
 @property (assign,nonatomic) VXXScrollLabelDirection scrollDirection;
+
+@property (assign,nonatomic) CGFloat margin;
 
 @end

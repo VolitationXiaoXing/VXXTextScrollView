@@ -19,6 +19,9 @@
 
 @property (assign,nonatomic) BOOL isLeft;
 
+//
+@property (assign,nonatomic) CGFloat speedPoint;
+
 @end
 
 
@@ -33,6 +36,7 @@
         _scrollLabel.shadowColor = self.shadowColor;
         _scrollLabel.font = self.font;
         _scrollLabel.attributedText = self.attributedText;
+        self.textColor = [UIColor clearColor];
     }
     
     return _scrollLabel;
@@ -42,7 +46,9 @@
 {
     self = [super initWithFrame:frame];
     if (self) {
-        
+        self.speedPoint = 0.2;
+        self.margin = 10;
+        self.scrollDirection = VXXScrollLabelLeftDirectionComeAndBack;
     }
     return self;
 }
@@ -75,32 +81,43 @@
 
 -(void)displayLink:(CADisplayLink*)displayLink{
     
-    if (self.bounds.size.width - self.scrollLabel.bounds.size.width - 10 > self.scrollLabel.frame.origin.x) {
-        self.isLeft = NO;
-    }
     
-    if (self.scrollLabel.frame.origin.x >= 10) {
-        self.isLeft = YES;
-    }
     
-    if (self.isLeft) {
-        
-        CGRect frame = self.scrollLabel.frame;
-        
-        frame.origin.x = frame.origin.x - 0.2;
-        
-        self.scrollLabel.frame = frame;
-        
-        
-    }else{
-        
-        CGRect frame = self.scrollLabel.frame;
-        
-        frame.origin.x = frame.origin.x + 0.2;
-        
-        self.scrollLabel.frame = frame;
-    }
     
+    if (self.scrollDirection == VXXScrollLabelLeftDirectionComeAndBack) {
+        if (self.bounds.size.width - self.scrollLabel.bounds.size.width - self.margin > self.scrollLabel.frame.origin.x) {
+            self.isLeft = NO;
+        }
+        
+        if (self.scrollLabel.frame.origin.x >= self.margin) {
+            self.isLeft = YES;
+        }
+        
+        if (self.isLeft) {
+            
+            CGRect frame = self.scrollLabel.frame;
+            
+            frame.origin.x = frame.origin.x - 0.2;
+            
+            self.scrollLabel.frame = frame;
+            
+            
+        }else{
+            
+            CGRect frame = self.scrollLabel.frame;
+            
+            frame.origin.x = frame.origin.x + 0.2;
+            
+            self.scrollLabel.frame = frame;
+        }
+        
+    }
+}
+
+-(void)setSpeed:(float)speed{
+    _speed = speed;
+    
+    self.speedPoint = 0.2 * speed;
 }
 
 @end
