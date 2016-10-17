@@ -14,6 +14,7 @@
 		EA2D1D851DB4749D00B06F17 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = EA2D1D841DB4749D00B06F17 /* Assets.xcassets */; };
 		EA2D1D881DB4749D00B06F17 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = EA2D1D861DB4749D00B06F17 /* LaunchScreen.storyboard */; };
 		EA2D1D921DB474E500B06F17 /* VXXScrollLabel.m in Sources */ = {isa = PBXBuildFile; fileRef = EA2D1D911DB474E500B06F17 /* VXXScrollLabel.m */; };
+		EA2D1D951DB47A3500B06F17 /* VXXScrollButton.m in Sources */ = {isa = PBXBuildFile; fileRef = EA2D1D941DB47A3500B06F17 /* VXXScrollButton.m */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -29,6 +30,8 @@
 		EA2D1D891DB4749D00B06F17 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		EA2D1D901DB474E500B06F17 /* VXXScrollLabel.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = VXXScrollLabel.h; sourceTree = "<group>"; };
 		EA2D1D911DB474E500B06F17 /* VXXScrollLabel.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = VXXScrollLabel.m; sourceTree = "<group>"; };
+		EA2D1D931DB47A3500B06F17 /* VXXScrollButton.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = VXXScrollButton.h; sourceTree = "<group>"; };
+		EA2D1D941DB47A3500B06F17 /* VXXScrollButton.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = VXXScrollButton.m; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -86,6 +89,8 @@
 		EA2D1D8F1DB474BE00B06F17 /* VXXScrollView */ = {
 			isa = PBXGroup;
 			children = (
+				EA2D1D931DB47A3500B06F17 /* VXXScrollButton.h */,
+				EA2D1D941DB47A3500B06F17 /* VXXScrollButton.m */,
 				EA2D1D901DB474E500B06F17 /* VXXScrollLabel.h */,
 				EA2D1D911DB474E500B06F17 /* VXXScrollLabel.m */,
 			);
@@ -164,6 +169,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				EA2D1D951DB47A3500B06F17 /* VXXScrollButton.m in Sources */,
 				EA2D1D921DB474E500B06F17 /* VXXScrollLabel.m in Sources */,
 				EA2D1D801DB4749D00B06F17 /* ViewController.m in Sources */,
 				EA2D1D7D1DB4749D00B06F17 /* AppDelegate.m in Sources */,
@@ -289,6 +295,7 @@
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				DEVELOPMENT_TEAM = GCFW8EF2TE;
 				INFOPLIST_FILE = VXXScrollLabel/Info.plist;
+				IPHONEOS_DEPLOYMENT_TARGET = 8.0;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = com.volitaionxiaoxing.VXXScrollLabel;
 				PRODUCT_NAME = "$(TARGET_NAME)";
@@ -301,6 +308,7 @@
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				DEVELOPMENT_TEAM = GCFW8EF2TE;
 				INFOPLIST_FILE = VXXScrollLabel/Info.plist;
+				IPHONEOS_DEPLOYMENT_TARGET = 8.0;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = com.volitaionxiaoxing.VXXScrollLabel;
 				PRODUCT_NAME = "$(TARGET_NAME)";
@@ -326,6 +334,7 @@
 				EA2D1D8E1DB4749D00B06F17 /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 /* End XCConfigurationList section */
 	};

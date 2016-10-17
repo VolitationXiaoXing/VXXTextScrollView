@@ -18,15 +18,28 @@
                         <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
-                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="432543540385403kjfhgdsghfruiwhvtuirwbt" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="5eF-Lq-CNw" customClass="VXXScrollLabel">
-                                <frame key="frameInset" minX="99" minY="117" width="73" height="21"/>
-                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="HxL-aK-aeS" customClass="VXXScrollButton">
+                                <constraints>
+                                    <constraint firstAttribute="width" constant="200" id="k89-jt-77t"/>
+                                </constraints>
+                                <state key="normal" title="Buttonjlg;dfjsklgjfdls;jrowijinbie"/>
+                            </button>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="432543540385403kjfhgdsghfruiwhvtuirwbtgfdogdfl" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="5eF-Lq-CNw" customClass="VXXScrollLabel">
+                                <constraints>
+                                    <constraint firstAttribute="width" constant="200" id="env-sV-8ld"/>
+                                </constraints>
                                 <fontDescription key="fontDescription" type="system" pointSize="17"/>
                                 <nil key="textColor"/>
                                 <nil key="highlightedColor"/>
                             </label>
                         </subviews>
                         <color key="backgroundColor" red="1" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                        <constraints>
+                            <constraint firstItem="5eF-Lq-CNw" firstAttribute="top" secondItem="y3c-jy-aDJ" secondAttribute="bottom" constant="50" id="PC0-FL-kg2"/>
+                            <constraint firstItem="5eF-Lq-CNw" firstAttribute="centerX" secondItem="8bC-Xf-vdC" secondAttribute="centerX" id="T0P-ne-pv6"/>
+                            <constraint firstItem="HxL-aK-aeS" firstAttribute="top" secondItem="5eF-Lq-CNw" secondAttribute="bottom" constant="50" id="cDp-Bg-7EC"/>
+                            <constraint firstItem="HxL-aK-aeS" firstAttribute="centerX" secondItem="8bC-Xf-vdC" secondAttribute="centerX" id="g3V-fj-kuJ"/>
+                        </constraints>
                     </view>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="dkx-z0-nzr" sceneMemberID="firstResponder"/>

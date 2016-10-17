@@ -22,7 +22,7 @@
 
 -(UILabel *)scrollLabel{
     if (_scrollLabel == nil) {
-        _scrollLabel = self.copy;
+//        _scrollLabel = self.copy;
     }
     
     return _scrollLabel;

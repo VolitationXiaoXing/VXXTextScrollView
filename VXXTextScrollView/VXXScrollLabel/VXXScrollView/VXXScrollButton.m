@@ -41,7 +41,7 @@
     
     [self.titleLabel sizeToFit];
     
-    if (self.titleLabel.width > self.width&& self.displayLink == nil) {
+    if (self.titleLabel.bounds.size.width > self.bounds.size.width&& self.displayLink == nil) {
         self.layer.masksToBounds = YES;
         
         self.displayLink = [CADisplayLink  displayLinkWithTarget:self selector:@selector(displayLink:)];
@@ -57,21 +57,30 @@
 
 -(void)displayLink:(CADisplayLink*)displayLink{
     
-    if (self.width - self.titleLabel.width - 10> self.titleLabel.x) {
+    if (self.bounds.size.width - self.titleLabel.bounds.size.width - 10 > self.titleLabel.frame.origin.x) {
         self.isLeft = NO;
     }
     
-    if (self.titleLabel.x >= 10) {
+    if (self.titleLabel.frame.origin.x >= 10) {
         self.isLeft = YES;
     }
     
     if (self.isLeft) {
         
-        self.titleLabel.x = self.titleLabel.x - 0.2;
+        CGRect frame = self.titleLabel.frame;
+        
+        frame.origin.x = frame.origin.x - 0.2;
+        
+        self.titleLabel.frame = frame;
+        
         
     }else{
         
-        self.titleLabel.x = self.titleLabel.x + 0.2;
+        CGRect frame = self.titleLabel.frame;
+        
+        frame.origin.x = frame.origin.x + 0.2;
+        
+        self.titleLabel.frame = frame;
     }
     
 }

@@ -8,8 +8,11 @@
 
 #import <UIKit/UIKit.h>
 
+
+
 @interface VXXScrollButton : UIButton
 
 @property (assign,nonatomic) CGFloat margin;
+
 
 @end
