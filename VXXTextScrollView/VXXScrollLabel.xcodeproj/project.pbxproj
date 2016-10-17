@@ -13,8 +13,8 @@
 		EA2D1D831DB4749D00B06F17 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = EA2D1D811DB4749D00B06F17 /* Main.storyboard */; };
 		EA2D1D851DB4749D00B06F17 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = EA2D1D841DB4749D00B06F17 /* Assets.xcassets */; };
 		EA2D1D881DB4749D00B06F17 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = EA2D1D861DB4749D00B06F17 /* LaunchScreen.storyboard */; };
-		EA2D1D921DB474E500B06F17 /* VXXScrollLabel.m in Sources */ = {isa = PBXBuildFile; fileRef = EA2D1D911DB474E500B06F17 /* VXXScrollLabel.m */; };
-		EA2D1D951DB47A3500B06F17 /* VXXScrollButton.m in Sources */ = {isa = PBXBuildFile; fileRef = EA2D1D941DB47A3500B06F17 /* VXXScrollButton.m */; };
+		EA2D1DA21DB4D37100B06F17 /* VXXScrollButton.m in Sources */ = {isa = PBXBuildFile; fileRef = EA2D1D9F1DB4D37100B06F17 /* VXXScrollButton.m */; };
+		EA2D1DA31DB4D37100B06F17 /* VXXScrollLabel.m in Sources */ = {isa = PBXBuildFile; fileRef = EA2D1DA11DB4D37100B06F17 /* VXXScrollLabel.m */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -28,10 +28,10 @@
 		EA2D1D841DB4749D00B06F17 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		EA2D1D871DB4749D00B06F17 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		EA2D1D891DB4749D00B06F17 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
-		EA2D1D901DB474E500B06F17 /* VXXScrollLabel.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = VXXScrollLabel.h; sourceTree = "<group>"; };
-		EA2D1D911DB474E500B06F17 /* VXXScrollLabel.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = VXXScrollLabel.m; sourceTree = "<group>"; };
-		EA2D1D931DB47A3500B06F17 /* VXXScrollButton.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = VXXScrollButton.h; sourceTree = "<group>"; };
-		EA2D1D941DB47A3500B06F17 /* VXXScrollButton.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = VXXScrollButton.m; sourceTree = "<group>"; };
+		EA2D1D9E1DB4D37100B06F17 /* VXXScrollButton.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = VXXScrollButton.h; sourceTree = "<group>"; };
+		EA2D1D9F1DB4D37100B06F17 /* VXXScrollButton.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = VXXScrollButton.m; sourceTree = "<group>"; };
+		EA2D1DA01DB4D37100B06F17 /* VXXScrollLabel.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = VXXScrollLabel.h; sourceTree = "<group>"; };
+		EA2D1DA11DB4D37100B06F17 /* VXXScrollLabel.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = VXXScrollLabel.m; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -64,7 +64,7 @@
 		EA2D1D771DB4749D00B06F17 /* VXXScrollLabel */ = {
 			isa = PBXGroup;
 			children = (
-				EA2D1D8F1DB474BE00B06F17 /* VXXScrollView */,
+				EA2D1D9D1DB4D37100B06F17 /* VXXTextScrollView */,
 				EA2D1D7B1DB4749D00B06F17 /* AppDelegate.h */,
 				EA2D1D7C1DB4749D00B06F17 /* AppDelegate.m */,
 				EA2D1D7E1DB4749D00B06F17 /* ViewController.h */,
@@ -86,15 +86,15 @@
 			name = "Supporting Files";
 			sourceTree = "<group>";
 		};
-		EA2D1D8F1DB474BE00B06F17 /* VXXScrollView */ = {
+		EA2D1D9D1DB4D37100B06F17 /* VXXTextScrollView */ = {
 			isa = PBXGroup;
 			children = (
-				EA2D1D931DB47A3500B06F17 /* VXXScrollButton.h */,
-				EA2D1D941DB47A3500B06F17 /* VXXScrollButton.m */,
-				EA2D1D901DB474E500B06F17 /* VXXScrollLabel.h */,
-				EA2D1D911DB474E500B06F17 /* VXXScrollLabel.m */,
+				EA2D1D9E1DB4D37100B06F17 /* VXXScrollButton.h */,
+				EA2D1D9F1DB4D37100B06F17 /* VXXScrollButton.m */,
+				EA2D1DA01DB4D37100B06F17 /* VXXScrollLabel.h */,
+				EA2D1DA11DB4D37100B06F17 /* VXXScrollLabel.m */,
 			);
-			path = VXXScrollView;
+			path = VXXTextScrollView;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -169,9 +169,9 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				EA2D1D951DB47A3500B06F17 /* VXXScrollButton.m in Sources */,
-				EA2D1D921DB474E500B06F17 /* VXXScrollLabel.m in Sources */,
 				EA2D1D801DB4749D00B06F17 /* ViewController.m in Sources */,
+				EA2D1DA31DB4D37100B06F17 /* VXXScrollLabel.m in Sources */,
+				EA2D1DA21DB4D37100B06F17 /* VXXScrollButton.m in Sources */,
 				EA2D1D7D1DB4749D00B06F17 /* AppDelegate.m in Sources */,
 				EA2D1D7A1DB4749D00B06F17 /* main.m in Sources */,
 			);

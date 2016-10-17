@@ -88,7 +88,7 @@
             
             CGRect frame = self.titleLabel.frame;
             
-            frame.origin.x = frame.origin.x - 0.2;
+            frame.origin.x = frame.origin.x - self.speedPoint;
             
             self.titleLabel.frame = frame;
             
@@ -97,7 +97,7 @@
             
             CGRect frame = self.titleLabel.frame;
             
-            frame.origin.x = frame.origin.x + 0.2;
+            frame.origin.x = frame.origin.x + self.speedPoint;
             
             self.titleLabel.frame = frame;
         }
@@ -105,12 +105,61 @@
     }
     
     if (self.scrollDirection == VXXScrollLabelLeftDirection) {
-        if(self.bounds.size.width - self.titleLabel.bounds.size.width - self.margin > self.titleLabel.){
+        if(self.bounds.size.width - self.titleLabel.bounds.size.width - self.margin > self.titleLabel.frame.origin.x){
+            
+            CGRect frame = self.titleLabel.frame;
+            
+            frame.origin.x  = self.margin;
+            
+            self.titleLabel.frame = frame;
+
+        }else{
+            
+            CGRect frame = self.titleLabel.frame;
+            
+            frame.origin.x = frame.origin.x - self.speedPoint;
+            
+            self.titleLabel.frame = frame;
             
         }
     }
     
+    if (self.scrollDirection == VXXScrollLabelRightDirection) {
+        if(self.margin == self.titleLabel.frame.origin.x){
+            
+            CGRect frame = self.titleLabel.frame;
+            
+            frame.origin.x  = self.bounds.size.width - self.titleLabel.bounds.size.width - self.margin;
+            
+            self.titleLabel.frame = frame;
+            
+        }else{
+            
+            CGRect frame = self.titleLabel.frame;
+            
+            frame.origin.x = frame.origin.x - self.speedPoint;
+            
+            self.titleLabel.frame = frame;
+            
+        }
+    }
+
     
+    
+}
+
+-(void)setScrollDirection:(VXXScrollLabelDirection)scrollDirection{
+    _scrollDirection = scrollDirection;
+    [self.displayLink invalidate];
+    self.displayLink = nil;
+
+    [self setNeedsDisplay];
+    [self setNeedsLayout];
+}
+
+-(void)setSpeed:(float)speed{
+    _speed = speed;
+    self.speedPoint = 0.2 * speed;
 }
 
 
