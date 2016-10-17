@@ -15,6 +15,10 @@
 
 @property (assign,nonatomic) CGRect tmpFrame;
 
+@property (strong,nonatomic) CADisplayLink* displayLink;
+
+@property (assign,nonatomic) BOOL isLeft;
+
 @end
 
 
@@ -22,7 +26,13 @@
 
 -(UILabel *)scrollLabel{
     if (_scrollLabel == nil) {
-//        _scrollLabel = self.copy;
+        _scrollLabel = [UILabel new];
+        _scrollLabel.frame = self.bounds;
+        _scrollLabel.text = self.text;
+        _scrollLabel.textColor = self.textColor;
+        _scrollLabel.shadowColor = self.shadowColor;
+        _scrollLabel.font = self.font;
+        _scrollLabel.attributedText = self.attributedText;
     }
     
     return _scrollLabel;
@@ -50,11 +60,47 @@
         
         [self addSubview:self.scrollLabel];
         
+        [self.scrollLabel sizeToFit];
+        
+        self.layer.masksToBounds = YES;
+        
+        self.displayLink = [CADisplayLink  displayLinkWithTarget:self selector:@selector(displayLink:)];
+        
+        [self.displayLink addToRunLoop:[NSRunLoop currentRunLoop]forMode:NSDefaultRunLoopMode];
+        
     }
     
-    
-    
     self.frame = self.tmpFrame;
+}
+
+-(void)displayLink:(CADisplayLink*)displayLink{
+    
+    if (self.bounds.size.width - self.scrollLabel.bounds.size.width - 10 > self.scrollLabel.frame.origin.x) {
+        self.isLeft = NO;
+    }
+    
+    if (self.scrollLabel.frame.origin.x >= 10) {
+        self.isLeft = YES;
+    }
+    
+    if (self.isLeft) {
+        
+        CGRect frame = self.scrollLabel.frame;
+        
+        frame.origin.x = frame.origin.x - 0.2;
+        
+        self.scrollLabel.frame = frame;
+        
+        
+    }else{
+        
+        CGRect frame = self.scrollLabel.frame;
+        
+        frame.origin.x = frame.origin.x + 0.2;
+        
+        self.scrollLabel.frame = frame;
+    }
+    
 }
 
 @end
