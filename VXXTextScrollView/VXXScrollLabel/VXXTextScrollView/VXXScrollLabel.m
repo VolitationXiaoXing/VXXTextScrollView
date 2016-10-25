@@ -167,19 +167,26 @@
     }
     
     //向左滚动的方法
-    if (self.scrollDirection == VXXScrollLabelLeftDirection) {
+    if (self.scrollDirection == VXXScrollLabelLeftDirection || self.scrollDirection == VXXScrollLabelRightDirection) {
         
         CGRect frame = self.scrollLabel.frame;
         
-        frame.origin.x = frame.origin.x - 0.2;
+        if (self.self.scrollDirection == VXXScrollLabelRightDirection) {
+                frame.origin.x = frame.origin.x - 0.2;
+        }else{
+                frame.origin.x = frame.origin.x + 0.2;
+        }
+        
         
         self.scrollLabel.frame = frame;
         
         CGRect frame1 = self.scrollLabel2.frame;
         
-        frame1.origin.x = frame1.origin.x - 0.2;
-        
-        NSLog(@"%@,%@",self.scrollLabel2,self.scrollLabel);
+        if (self.scrollDirection == VXXScrollLabelLeftDirection) {
+              frame1.origin.x = frame1.origin.x - 0.2;
+        }else{
+              frame1.origin.x = frame1.origin.x + 0.2;
+        }
         
         self.scrollLabel2.frame = frame1;
         
@@ -202,12 +209,20 @@
         };
         
     }
+    
+    
+    
 }
 
 -(BOOL)judgeLocation:(UILabel*)label{
     
-    if((label.frame.origin.x + label.frame.size.width) < 0){
-        return YES;
+    
+    if (self.scrollDirection == VXXScrollLabelLeftDirection) {
+        if((label.frame.origin.x + label.frame.size.width) < 0){
+            return YES;
+        }
+    }else{
+        
     }
     
     return NO;
