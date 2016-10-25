@@ -60,7 +60,7 @@
     [super awakeFromNib];
     self.speedPoint = 0.2;
     self.margin = 10;
-    self.scrollDirection = VXXScrollLabelRightDirection;
+    self.scrollDirection = VXXScrollLabelLeftDirection;
 }
 
 - (instancetype)initWithFrame:(CGRect)frame
@@ -69,7 +69,7 @@
     if (self) {
         self.speedPoint = 0.2;
         self.margin = 10;
-        self.scrollDirection = VXXScrollLabelRightDirection;
+        self.scrollDirection = VXXScrollLabelLeftDirection;
     }
     return self;
 }
@@ -249,6 +249,8 @@
 
 -(void)setScrollDirection:(VXXScrollLabelDirection)scrollDirection{
     _scrollDirection = scrollDirection;
+    [self.displayLink invalidate];
+    self.displayLink = nil;
     
     [self setNeedsLayout];
     [self setNeedsDisplay];

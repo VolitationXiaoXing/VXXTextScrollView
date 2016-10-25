@@ -16,6 +16,8 @@
 
 @property (assign,nonatomic) CGFloat speedPoint;
 
+@property (nonatomic,assign) CGFloat currentX;
+
 @end
 
 
@@ -47,13 +49,18 @@
     
     [self.titleLabel sizeToFit];
     
+    CGRect frame = self.titleLabel.frame;
+    
+    frame.origin.x = self.currentX;
+    
+    self.titleLabel.frame = frame;
+    
     if (self.titleLabel.bounds.size.width > self.bounds.size.width && self.displayLink == nil) {
         self.layer.masksToBounds = YES;
         
         self.displayLink = [CADisplayLink  displayLinkWithTarget:self selector:@selector(displayLink:)];
         
         [self.displayLink addToRunLoop:[NSRunLoop currentRunLoop]forMode:NSDefaultRunLoopMode];
-        
     }
 
 }
@@ -88,7 +95,9 @@
             
             CGRect frame = self.titleLabel.frame;
             
-            frame.origin.x = frame.origin.x - self.speedPoint;
+            frame.origin.x = self.currentX - self.speedPoint;
+            
+            self.currentX =  frame.origin.x;
             
             self.titleLabel.frame = frame;
             
@@ -97,7 +106,9 @@
             
             CGRect frame = self.titleLabel.frame;
             
-            frame.origin.x = frame.origin.x + self.speedPoint;
+            frame.origin.x = self.currentX + self.speedPoint;
+            
+            self.currentX =  frame.origin.x;
             
             self.titleLabel.frame = frame;
         }
@@ -111,13 +122,17 @@
             
             frame.origin.x  = self.margin;
             
+            self.currentX = frame.origin.x;
+            
             self.titleLabel.frame = frame;
 
         }else{
             
             CGRect frame = self.titleLabel.frame;
             
-            frame.origin.x = frame.origin.x - self.speedPoint;
+            frame.origin.x = self.currentX - self.speedPoint;
+            
+            self.currentX = frame.origin.x;
             
             self.titleLabel.frame = frame;
             
@@ -131,13 +146,17 @@
             
             frame.origin.x  = self.bounds.size.width - self.titleLabel.bounds.size.width - self.margin;
             
+            self.currentX = frame.origin.x;
+            
             self.titleLabel.frame = frame;
             
         }else{
             
             CGRect frame = self.titleLabel.frame;
             
-            frame.origin.x = frame.origin.x - self.speedPoint;
+            frame.origin.x = self.currentX - self.speedPoint;
+            
+            self.currentX = frame.origin.x;
             
             self.titleLabel.frame = frame;
             
