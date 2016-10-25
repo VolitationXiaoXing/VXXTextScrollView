@@ -59,7 +59,7 @@
     [super awakeFromNib];
     self.speedPoint = 0.2;
     self.margin = 10;
-    self.scrollDirection = VXXScrollLabelLeftDirection;
+    self.scrollDirection = VXXScrollLabelRightDirection;
 }
 
 - (instancetype)initWithFrame:(CGRect)frame
@@ -68,7 +68,7 @@
     if (self) {
         self.speedPoint = 0.2;
         self.margin = 10;
-        self.scrollDirection = VXXScrollLabelLeftDirection;
+        self.scrollDirection = VXXScrollLabelRightDirection;
     }
     return self;
 }
@@ -166,12 +166,11 @@
         
     }
     
-    //向左滚动的方法
     if (self.scrollDirection == VXXScrollLabelLeftDirection || self.scrollDirection == VXXScrollLabelRightDirection) {
         
         CGRect frame = self.scrollLabel.frame;
         
-        if (self.self.scrollDirection == VXXScrollLabelRightDirection) {
+        if (self.scrollDirection == VXXScrollLabelLeftDirection) {
                 frame.origin.x = frame.origin.x - 0.2;
         }else{
                 frame.origin.x = frame.origin.x + 0.2;
@@ -192,19 +191,37 @@
         
         //判读label位置是否需要重置
         if([self judgeLocation:self.scrollLabel]){
-            CGRect frame = self.scrollLabel.frame;
             
-            frame.origin.x = self.scrollLabel2.frame.origin.x + self.scrollLabel2.frame.size.width + self.margin;
+            if (self.scrollDirection == VXXScrollLabelLeftDirection) {
+                CGRect frame = self.scrollLabel.frame;
+                
+                frame.origin.x = self.scrollLabel2.frame.origin.x + self.scrollLabel2.frame.size.width + self.margin;
+                
+                self.scrollLabel.frame = frame;
+            }else{
             
-            self.scrollLabel.frame = frame;
-            
+                CGRect frame = self.scrollLabel.frame;
+                frame.origin.x = self.scrollLabel2.frame.origin.x - self.margin - self.scrollLabel.frame.size.width;
+                self.scrollLabel.frame = frame;
+                
+            }
         };
         
         if([self judgeLocation:self.scrollLabel2]){
+            if (self.scrollDirection == VXXScrollLabelLeftDirection) {
+
             CGRect frame = self.scrollLabel2.frame;
             
             frame.origin.x = self.scrollLabel.frame.origin.x + self.scrollLabel.frame.size.width + self.margin;
+                self.scrollLabel2.frame = frame;
+            }else{
+                
+            CGRect frame = self.scrollLabel2.frame;
+                
+                frame.origin.x = self.scrollLabel.frame.origin.x - self.margin - self.scrollLabel2.frame.size.width;
             self.scrollLabel2.frame = frame;
+            
+            }
             
         };
         
@@ -216,13 +233,14 @@
 
 -(BOOL)judgeLocation:(UILabel*)label{
     
-    
     if (self.scrollDirection == VXXScrollLabelLeftDirection) {
         if((label.frame.origin.x + label.frame.size.width) < 0){
             return YES;
         }
     }else{
-        
+        if(label.frame.origin.x > self.frame.size.width){
+            return YES;
+        }
     }
     
     return NO;
