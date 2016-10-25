@@ -1,8 +1,9 @@
 <?xml version="1.0" encoding="UTF-8" standalone="no"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="11201" systemVersion="15G1004" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" colorMatched="YES" initialViewController="BYZ-38-t0r">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="11201" systemVersion="15G31" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" colorMatched="YES" initialViewController="BYZ-38-t0r">
     <dependencies>
         <deployment identifier="iOS"/>
         <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="11161"/>
+        <capability name="Constraints to layout margins" minToolsVersion="6.0"/>
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
     </dependencies>
     <scenes>
@@ -22,9 +23,9 @@
                                 <constraints>
                                     <constraint firstAttribute="width" constant="200" id="k89-jt-77t"/>
                                 </constraints>
-                                <state key="normal" title="Buttonjlg;dfjsklgjfdls;jrowijinbie"/>
+                                <state key="normal" title="测试测试测试测试测试测试测试测试测试测试测试测试测试测试测试测试测试测试测试测试测试测试测试测试测试测试测试测试测试测试"/>
                             </button>
-                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="432543540385403kjfhgdsghfruiwhvtuirwbtgfdogdfl" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="5eF-Lq-CNw" customClass="VXXScrollLabel">
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="测试测试测试测试测试测试测试测试测试测试测试测试测试测试测试测试测试测试测试测试测试测试测试测试测试测试测试测试" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="5eF-Lq-CNw" customClass="VXXScrollLabel">
                                 <color key="backgroundColor" red="0.78823529410000004" green="0.76470588240000004" blue="0.74901960779999999" alpha="1" colorSpace="calibratedRGB"/>
                                 <constraints>
                                     <constraint firstAttribute="width" constant="200" id="env-sV-8ld"/>
@@ -34,13 +35,31 @@
                                 <nil key="textColor"/>
                                 <color key="highlightedColor" red="0.78823529410000004" green="0.76470588240000004" blue="0.74901960779999999" alpha="1" colorSpace="calibratedRGB"/>
                             </label>
+                            <button opaque="NO" contentMode="scaleToFill" misplaced="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="1gY-9z-hru">
+                                <frame key="frameInset" minX="52" minY="598" width="46" height="30"/>
+                                <state key="normal" title="往返"/>
+                            </button>
+                            <button opaque="NO" contentMode="scaleToFill" misplaced="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="XKG-lw-NN4">
+                                <frame key="frameInset" minX="161" minY="598" width="46" height="30"/>
+                                <state key="normal" title="向左"/>
+                            </button>
+                            <button opaque="NO" contentMode="scaleToFill" misplaced="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="I1g-YH-QSL">
+                                <frame key="frameInset" minX="277" minY="598" width="46" height="30"/>
+                                <state key="normal" title="向右"/>
+                            </button>
                         </subviews>
                         <color key="backgroundColor" red="1" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                         <constraints>
+                            <constraint firstItem="wfy-db-euE" firstAttribute="top" secondItem="XKG-lw-NN4" secondAttribute="bottom" constant="39" id="1pQ-h1-nX2"/>
+                            <constraint firstItem="XKG-lw-NN4" firstAttribute="centerX" secondItem="8bC-Xf-vdC" secondAttribute="centerX" id="HMI-EZ-nqy"/>
                             <constraint firstItem="5eF-Lq-CNw" firstAttribute="top" secondItem="y3c-jy-aDJ" secondAttribute="bottom" constant="50" id="PC0-FL-kg2"/>
                             <constraint firstItem="5eF-Lq-CNw" firstAttribute="centerX" secondItem="8bC-Xf-vdC" secondAttribute="centerX" id="T0P-ne-pv6"/>
+                            <constraint firstAttribute="trailingMargin" secondItem="I1g-YH-QSL" secondAttribute="trailing" constant="36" id="YD9-Ec-SCj"/>
+                            <constraint firstItem="1gY-9z-hru" firstAttribute="leading" secondItem="8bC-Xf-vdC" secondAttribute="leadingMargin" constant="36" id="Zyt-QR-3z3"/>
                             <constraint firstItem="HxL-aK-aeS" firstAttribute="top" secondItem="5eF-Lq-CNw" secondAttribute="bottom" constant="50" id="cDp-Bg-7EC"/>
                             <constraint firstItem="HxL-aK-aeS" firstAttribute="centerX" secondItem="8bC-Xf-vdC" secondAttribute="centerX" id="g3V-fj-kuJ"/>
+                            <constraint firstItem="wfy-db-euE" firstAttribute="top" secondItem="1gY-9z-hru" secondAttribute="bottom" constant="39" id="hdq-H5-eKs"/>
+                            <constraint firstItem="wfy-db-euE" firstAttribute="top" secondItem="I1g-YH-QSL" secondAttribute="bottom" constant="39" id="nl2-Sz-TM6"/>
                         </constraints>
                     </view>
                 </viewController>
