@@ -40,6 +40,7 @@
 }
 
 -(UILabel *)scrollLabel2{
+    
     if (_scrollLabel2 == nil) {
         _scrollLabel2 = [UILabel new];
         _scrollLabel2.frame = _scrollLabel.bounds;
@@ -244,6 +245,18 @@
     }
     
     return NO;
+}
+
+-(void)setScrollDirection:(VXXScrollLabelDirection)scrollDirection{
+    _scrollDirection = scrollDirection;
+    
+    [self setNeedsLayout];
+    [self setNeedsDisplay];
+    
+    if (scrollDirection == VXXScrollLabelDirectionComeAndBack) {
+        [_scrollLabel2 removeFromSuperview];
+        _scrollLabel2 = nil;
+    }
 }
 
 -(void)setSpeed:(float)speed{

@@ -26,7 +26,7 @@
     [super awakeFromNib];
     self.speedPoint = 0.2;
     self.margin = 10;
-    self.scrollDirection = VXXScrollLabelLeftDirectionComeAndBack;
+    self.scrollDirection = VXXScrollButtonDirectionComeAndBack;
 }
 
 - (instancetype)initWithFrame:(CGRect)frame
@@ -35,7 +35,7 @@
     if (self) {
         self.speedPoint = 0.2;
         self.margin = 10;
-        self.scrollDirection = VXXScrollLabelLeftDirectionComeAndBack;
+        self.scrollDirection = VXXScrollButtonDirectionComeAndBack;
         self.margin = 10;
         
     }
@@ -74,7 +74,7 @@
 
 -(void)displayLink:(CADisplayLink*)displayLink{
     
-    if (self.scrollDirection == VXXScrollLabelLeftDirectionComeAndBack) {
+    if (self.scrollDirection == VXXScrollButtonDirectionComeAndBack) {
         
         if (self.bounds.size.width - self.titleLabel.bounds.size.width - self.margin > self.titleLabel.frame.origin.x) {
             self.isLeft = NO;
@@ -104,7 +104,7 @@
         return;
     }
     
-    if (self.scrollDirection == VXXScrollLabelLeftDirection) {
+    if (self.scrollDirection == VXXScrollButtonLeftDirection) {
         if(self.bounds.size.width - self.titleLabel.bounds.size.width - self.margin > self.titleLabel.frame.origin.x){
             
             CGRect frame = self.titleLabel.frame;
@@ -124,7 +124,7 @@
         }
     }
     
-    if (self.scrollDirection == VXXScrollLabelRightDirection) {
+    if (self.scrollDirection == VXXScrollButtonRightDirection) {
         if(self.margin == self.titleLabel.frame.origin.x){
             
             CGRect frame = self.titleLabel.frame;
@@ -148,7 +148,7 @@
     
 }
 
--(void)setScrollDirection:(VXXScrollLabelDirection)scrollDirection{
+-(void)setScrollDirection:(VXXScrollButtonDirection)scrollDirection{
     _scrollDirection = scrollDirection;
     [self.displayLink invalidate];
     self.displayLink = nil;

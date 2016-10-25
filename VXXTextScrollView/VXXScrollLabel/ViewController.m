@@ -32,6 +32,23 @@
 }
 
 - (IBAction)onBtnClicked:(UIButton *)sender {
+    
+    if (sender.tag == 1000) {
+        self.label.scrollDirection = VXXScrollLabelDirectionComeAndBack;
+        self.btn.scrollDirection = VXXScrollLabelDirectionComeAndBack;
+    }
+    
+    if (sender.tag == 2000) {
+        self.label.scrollDirection = VXXScrollLabelLeftDirection;
+        self.btn.scrollDirection = VXXScrollLabelLeftDirection;
+    }
+    
+    if (sender.tag == 3000) {
+        self.label.scrollDirection = VXXScrollLabelRightDirection;
+        self.btn.scrollDirection = VXXScrollLabelRightDirection;
+    }
+    
+    
 }
 
 @end
