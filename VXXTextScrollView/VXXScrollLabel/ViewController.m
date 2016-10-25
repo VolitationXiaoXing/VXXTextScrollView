@@ -7,8 +7,14 @@
 //
 
 #import "ViewController.h"
+#import "VXXScrollLabel.h"
+#import "VXXScrollButton.h"
 
 @interface ViewController ()
+
+@property (weak, nonatomic) IBOutlet VXXScrollButton *btn;
+
+@property (weak, nonatomic) IBOutlet VXXScrollLabel *label;
 
 @end
 
@@ -25,5 +31,7 @@
     // Dispose of any resources that can be recreated.
 }
 
+- (IBAction)onBtnClicked:(UIButton *)sender {
+}
 
 @end
