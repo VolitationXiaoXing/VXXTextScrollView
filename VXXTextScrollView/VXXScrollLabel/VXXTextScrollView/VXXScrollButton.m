@@ -46,17 +46,17 @@
 
 -(void)layoutSubviews{
     [super layoutSubviews];
-    
+
     [self.titleLabel sizeToFit];
-    
-    CGRect frame = self.titleLabel.frame;
-    
-    frame.origin.x = self.currentX;
-    
-    self.titleLabel.frame = frame;
     
     if (self.titleLabel.bounds.size.width > self.bounds.size.width && self.displayLink == nil) {
         self.layer.masksToBounds = YES;
+        
+        CGRect frame = self.titleLabel.frame;
+        
+        frame.origin.x = self.currentX;
+        
+        self.titleLabel.frame = frame;
         
         self.displayLink = [CADisplayLink  displayLinkWithTarget:self selector:@selector(displayLink:)];
         

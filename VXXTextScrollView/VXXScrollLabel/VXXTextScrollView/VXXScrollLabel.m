@@ -80,10 +80,10 @@
     
     self.tmpFrame = self.frame;
     
-    [self sizeToFit];
+    CGSize size = [self.text sizeWithAttributes:@{NSFontAttributeName:self.font}];
     
     //需要滚动
-    if(self.bounds.size.width > self.tmpFrame.size.width){
+    if(size.width > self.tmpFrame.size.width){
         
         [self addSubview:self.scrollLabel];
         
@@ -96,28 +96,32 @@
         
         self.layer.masksToBounds = YES;
         
-        self.displayLink = [CADisplayLink  displayLinkWithTarget:self selector:@selector(displayLink:)];
-        
-        [self.displayLink addToRunLoop:[NSRunLoop currentRunLoop]forMode:NSDefaultRunLoopMode];
-        
-        CGRect frame = self.scrollLabel.frame;
-        
-        frame.origin.y = (self.tmpFrame.size.height - frame.size.height) * 0.5;
-        
-        self.scrollLabel.frame = frame;
-        
-        if (self.scrollDirection == VXXScrollLabelLeftDirection || self.scrollDirection == VXXScrollLabelRightDirection) {
-          
-            CGRect fame2 = frame;
+        if (self.displayLink == nil) {
             
-            fame2.origin.x = frame.origin.x + frame.size.width + self.margin;
+            self.displayLink = [CADisplayLink  displayLinkWithTarget:self selector:@selector(displayLink:)];
             
-            self.scrollLabel2.frame = fame2;
+            [self.displayLink addToRunLoop:[NSRunLoop currentRunLoop]forMode:NSDefaultRunLoopMode];
+            
+            CGRect frame = self.scrollLabel.frame;
+            
+            frame.origin.y = (self.tmpFrame.size.height - frame.size.height) * 0.5;
+            
+            self.scrollLabel.frame = frame;
+            
+            if (self.scrollDirection == VXXScrollLabelLeftDirection || self.scrollDirection == VXXScrollLabelRightDirection) {
+                
+                CGRect fame2 = frame;
+                
+                fame2.origin.x = frame.origin.x + frame.size.width + self.margin;
+                
+                self.scrollLabel2.frame = fame2;
+            }
+            
         }
 
+            
     }
-    
-    self.frame = self.tmpFrame;
+
 }
 
 
@@ -128,9 +132,7 @@
     
     [super setText:text];
 
-    [self setNeedsDisplay];
-    [self setNeedsLayout];
-}
+ }
 
 
 
