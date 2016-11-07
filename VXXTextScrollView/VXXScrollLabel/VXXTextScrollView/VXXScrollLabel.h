@@ -30,4 +30,6 @@ typedef enum : NSUInteger {
 //当方向 向左右的第二个label
 @property (strong,nonatomic) UILabel* scrollLabel2;
 
+-(void)setScrollColor:(UIColor *)color;
+
 @end

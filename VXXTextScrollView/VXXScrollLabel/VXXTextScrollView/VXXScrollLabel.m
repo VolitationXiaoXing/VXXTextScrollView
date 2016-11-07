@@ -18,6 +18,8 @@
 
 @property (assign,nonatomic) CGFloat speedPoint;
 
+@property (assign,nonatomic) BOOL shouldScroll;
+
 @end
 
 
@@ -85,6 +87,8 @@
     //需要滚动
     if(size.width > self.tmpFrame.size.width){
         
+        self.shouldScroll = YES;
+        
         [self addSubview:self.scrollLabel];
         
         [self.scrollLabel sizeToFit];
@@ -131,7 +135,8 @@
     self.displayLink = nil;
     
     [super setText:text];
-
+    
+    [self setNeedsLayout];
  }
 
 
@@ -267,5 +272,14 @@
     _speed = speed;
     self.speedPoint = 0.2 * speed;
 }
+
+
+-(void)setScrollColor:(UIColor *)color{
+    self.scrollLabel.textColor = color;
+    self.scrollLabel2.textColor = color;
+
+}
+
+
 
 @end
