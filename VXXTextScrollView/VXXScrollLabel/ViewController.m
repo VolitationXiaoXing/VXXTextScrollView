@@ -23,11 +23,9 @@
 - (void)viewDidLoad {
     [super viewDidLoad];
 }
-
 - (void)didReceiveMemoryWarning {
     [super didReceiveMemoryWarning];
 }
-
 - (IBAction)onBtnClicked:(UIButton *)sender {
     
     if (sender.tag == 1000) {
@@ -44,8 +42,6 @@
         self.label.scrollDirection = VXXScrollLabelRightDirection;
         self.btn.scrollDirection = VXXScrollLabelRightDirection;
     }
-    
-    
 }
 
 @end
