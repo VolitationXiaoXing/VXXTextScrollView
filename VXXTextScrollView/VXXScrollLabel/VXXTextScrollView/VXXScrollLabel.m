@@ -20,6 +20,8 @@
 
 @property (assign,nonatomic) BOOL shouldScroll;
 
+@property (nonatomic,strong) UIColor* textColorNor;
+
 @end
 
 
@@ -30,7 +32,7 @@
         _scrollLabel = [UILabel new];
         _scrollLabel.frame = self.bounds;
         _scrollLabel.text = self.text;
-        _scrollLabel.textColor = self.textColor;
+        _scrollLabel.textColor = self.textColorNor;
         _scrollLabel.shadowColor = self.shadowColor;
         _scrollLabel.font = self.font;
         _scrollLabel.attributedText = self.attributedText;
@@ -47,7 +49,7 @@
         _scrollLabel2 = [UILabel new];
         _scrollLabel2.frame = _scrollLabel.bounds;
         _scrollLabel2.text = _scrollLabel.text;
-        _scrollLabel2.textColor = _scrollLabel.textColor;
+        _scrollLabel2.textColor = self.textColorNor;
         _scrollLabel2.shadowColor = _scrollLabel.shadowColor;
         _scrollLabel2.font = _scrollLabel.font;
         _scrollLabel2.attributedText = _scrollLabel.attributedText;
@@ -63,6 +65,7 @@
     self.speedPoint = 0.2;
     self.margin = 10;
     self.scrollDirection = VXXScrollLabelLeftDirection;
+    self.textColorNor = [UIColor blackColor];
 }
 
 - (instancetype)initWithFrame:(CGRect)frame
@@ -72,6 +75,7 @@
         self.speedPoint = 0.2;
         self.margin = 10;
         self.scrollDirection = VXXScrollLabelLeftDirection;
+        self.textColorNor = [UIColor blackColor];
     }
     return self;
 }
@@ -97,6 +101,9 @@
             [self.scrollLabel2 sizeToFit];
             [self addSubview:self.scrollLabel2];
         }
+        self.textColor = [UIColor clearColor];
+        self.scrollLabel.textColor =  self.textColorNor;
+        self.scrollLabel2.textColor =  self.textColorNor;
         
         self.layer.masksToBounds = YES;
         
@@ -134,13 +141,27 @@
     [self.displayLink invalidate];
     self.displayLink = nil;
     
+    [_scrollLabel removeFromSuperview];
+    _scrollLabel = nil;
+    [_scrollLabel2 removeFromSuperview];
+    _scrollLabel2 =nil;
+    
     [super setText:text];
     
     [self setNeedsLayout];
  }
 
 
-
+-(void)setTextColor:(UIColor *)textColor{
+    [super setTextColor:textColor];
+    
+    if(!CGColorEqualToColor(textColor.CGColor, [UIColor clearColor].CGColor)){
+        
+        self.textColorNor = textColor;
+        [self setNeedsLayout];
+    }
+    
+}
 
 //往返滚动的方法
 -(void)displayLink:(CADisplayLink*)displayLink{
@@ -275,11 +296,12 @@
 
 
 -(void)setScrollColor:(UIColor *)color{
-    self.scrollLabel.textColor = color;
-    self.scrollLabel2.textColor = color;
-
+    [self setTextColor:color];
 }
 
+- (void)dealloc{
 
+    NSLog(@"%s",__func__);
+}
 
 @end
